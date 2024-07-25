@@ -1,5 +1,5 @@
 {
-  "name": "@hslookup/frontend",
+  "name": "@hslookup/shared",
   "version": "1.0.0",
   "main": "index.ts",
   "license": "MIT",
