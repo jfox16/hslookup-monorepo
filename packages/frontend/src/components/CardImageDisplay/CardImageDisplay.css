@@ -1,0 +1,24 @@
+.CardImageDisplay {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  padding-bottom: 16px;
+}
+
+@media screen and (max-width: 1000px), screen and (max-height: 700px) {
+  .CardImageDisplay {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+}
+
+@media screen and (max-width: 800px), screen and (max-height: 550px) {
+  .CardImageDisplay {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  }
+}
+
+@media screen and (max-width: 600px), screen and (max-height: 400px) {
+  .CardImageDisplay {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+}

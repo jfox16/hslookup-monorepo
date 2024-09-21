@@ -1,0 +1,21 @@
+.NumericFilterInput {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  border-radius: 4px;
+  color: hsl(0, 0%, 99%);
+  border: 1px solid hsl(0, 0%, 40%);
+  background: hsl(0, 0%, 28%);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  appearance: textfield;
+}

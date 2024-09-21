@@ -1,0 +1,19 @@
+.InputLabel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 30px;
+}
+
+.InputLabelText {
+  font-size: 14px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+
+.InputLabelLine {
+  margin: 0;
+  flex: 1 0 0;
+  height: 1px;
+  background-color: hsla(0, 0%, 100%, 0.15);
+}

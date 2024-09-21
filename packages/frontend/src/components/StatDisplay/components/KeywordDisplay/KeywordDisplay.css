@@ -1,0 +1,32 @@
+.KeywordDisplay {
+  border: solid 1px hsl(0, 0%, 28%);
+  border-radius: 6px;
+  background-color: hsla(0, 0%, 14%, 80%);
+  padding: 8px 4px;
+  margin: 3px 2px;
+}
+
+.Keywords {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.KeywordDisplayDiv {
+  margin: 5px 8px;
+  text-align: center;
+}
+
+.KeywordPercentage {
+  font-size: 18px;
+}
+
+@media screen and (max-width: 1200px), screen and (max-height: 500px) {
+  .KeywordDisplayDiv {
+    font-size: 14px;
+  }
+  .KeywordPercentage {
+    font-size: 16px;
+  }
+}

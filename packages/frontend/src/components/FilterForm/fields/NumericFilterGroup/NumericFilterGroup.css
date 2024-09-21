@@ -1,0 +1,12 @@
+.NumericFilterGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.NumericFilterGroup > div {
+  flex: auto;
+}
+
+.NumericFilterGroup > div + div {
+  margin-left: 5px;
+}

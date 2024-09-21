@@ -1,15 +1,17 @@
 
 import 'dotenv/config'; // Initialize dotenv
 import express from 'express';
+import cors from 'cors';
 
 import { handleGetCardData } from './routes/cardData/cardData.route';
-import { handleGetHomepage } from './routes/homepage.route';
+import { handleGetHomepage } from './routes/homepage/homepage.route';
 import { handleGetVersion } from './routes/version.route';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', handleGetHomepage)
 app.get('/api/cardData', handleGetCardData);

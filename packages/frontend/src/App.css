@@ -1,0 +1,72 @@
+body {
+  background-color: #212121;
+  color: snow;
+}
+
+h1 {
+  margin: auto;
+  margin-top: 1em;
+}
+
+p {
+  margin: 0;
+}
+
+select {
+  outline: none;
+}
+
+input.selectable,
+select.selectable {
+  background-color: hsl(0, 0%, 25%);
+}
+input.selectable.darkened,
+select.selectable.darkened {
+  background-color: hsla(0, 0%, 15%);
+}
+.selectable:hover {
+  opacity: 0.9;
+}
+.selectable:active {
+  opacity: 0.8;
+}
+
+.select.selectable.option {
+  background-color: red;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+  scrollbar-color: hsl(0, 0%, 30%) hsl(0, 0%, 10%);
+}
+
+.simplebar-track .simplebar-scrollbar::before {
+  background: hsl(0, 0%, 50%);
+}
+
+.fullscreen {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: initial;
+  margin-top: 0;
+}
+
+
+@media screen and (max-width: 1200px), screen and (max-height: 500px) {
+  h1 {
+    font-size: 28px;
+  }
+}

@@ -1,7 +1,6 @@
 import { fetchAllCards, fetchMetadata } from "../bnetApi/hearthstone.api"
 
 export const getCardData = async () => {
-  console.info('gettin card data')
   try {
     const [
       cards,

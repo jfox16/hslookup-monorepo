@@ -23,6 +23,16 @@ const KEYS_TO_KEEP = [
   'text',
 ];
 
+const CARD_KEYS_TO_OMIT = [
+  'artistName',
+  'collectible',
+  'cropImage',
+  'flavorText',
+  'imageGold',
+  'isZilliaxCosmeticModule',
+  'isZilliaxFunctionalModule',
+]
+
 export const fetchAllCards = async () => {
   const requestUrl = 'https://us.api.blizzard.com/hearthstone/cards';
   const cards: any[] = [];
@@ -51,7 +61,7 @@ export const fetchAllCards = async () => {
       if (Array.isArray(response.data.cards)) {
         response.data.cards.forEach((card: any) => {
           if (!cardNameSet.has(card.name)) {
-            cards.push(_.pick(card, KEYS_TO_KEEP));
+            cards.push(_.omit(card, CARD_KEYS_TO_OMIT));
             cardNameSet.add(card.name);
           }
         })
@@ -66,8 +76,8 @@ export const fetchAllCards = async () => {
 
     return cards;
   }
-  catch (e) {
-    console.error('Error:', e);
+  catch (e: any) {
+    console.error('Error in fetchAllCards', e?.response);
     return null;
   }
 }
@@ -93,7 +103,7 @@ export const fetchMetadata = async () => {
     }
   }
   catch (e) {
-    console.error('Error:', e);
+    console.error('Error in fetchMetadata');
     return null;
   }
 }

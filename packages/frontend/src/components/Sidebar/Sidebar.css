@@ -1,0 +1,11 @@
+.sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  height: 100%;
+}
+
+.SimpleBar {
+  height: 100%;
+  overflow: auto;
+  padding: 8px;
+}

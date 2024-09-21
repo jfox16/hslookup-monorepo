@@ -1,0 +1,46 @@
+.ClassFilter {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center; */
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  width: fit-content;
+  margin: auto;
+  padding: 4px 0;
+}
+
+.ClassFilterButton {
+  text-align: center;
+  cursor: pointer;
+}
+
+.ClassFilterButtonIcon {
+  margin: 0 auto;
+  height: 38px;
+  width: 38px;
+  background-color: grey;
+  border-radius: 50%;
+  background-position: center;
+  background-size: 105% 105%;
+}
+
+.ClassFilterButtonLabel {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 13px;
+  width: 50px;
+}
+
+@media screen and (max-width: 1200px), screen and (max-height: 500px) {
+  .ClassFilterButtonIcon {
+    height: 34px;
+    width: 34px;
+  }
+
+  .ClassFilterButtonLabel {
+    font-size: 12px;
+    width: 45px;
+  }
+}

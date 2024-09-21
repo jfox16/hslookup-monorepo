@@ -3,14 +3,17 @@ import axios from 'axios';
 let accessToken: string | undefined;
 
 const requestAccessToken = async function() {
+  const clientId = process.env.BNET_CLIENT_ID;
+  const clientSecret = process.env.BNET_CLIENT_SECRET
   const headers = {
     'Content-Type': 'application/x-www-form-urlencoded',
-    'Authorization': 'Basic ' + Buffer.from(`${process.env.BNET_CLIENT_ID}:${process.env.BNET_CLIENT_SECRET}`).toString('base64')
+    'Authorization': 'Basic ' + Buffer.from(`${clientId}:${clientSecret}`).toString('base64')
   };
 
   const body = 'grant_type=client_credentials';
 
   try {
+    console.info('Requesting new token with credentials:', {clientId, clientSecret})
     const response = await axios.post(`https://us.battle.net/oauth/token`, body, {
       headers,
     });
@@ -22,7 +25,7 @@ const requestAccessToken = async function() {
     }
   }
   catch (e) {
-    console.error('Error:', e);
+    console.error('Error in requestAccessToken');
     return null;
   }
 };
@@ -40,10 +43,11 @@ const checkIsAccessTokenValid = async () => {
         }
       }
     );
-    return !response.data.error;
+    console.info('Is access token valid?', !response.data.error)
+    return !response?.data?.error;
   }
-  catch (e) {
-    console.error('Error in checkIsAccessTokenValid:', e);
+  catch (e: any) {
+    console.error('Error in checkIsAccessTokenValid:', e?.response);
     return false;
   }
 }
@@ -57,7 +61,7 @@ export const getAccessToken = async () => {
     return accessToken;
   }
   catch (e) {
-    console.error('Error in getAccessToken:', e);
+    console.error('Error in getAccessToken:');
     return null;
   }
 }

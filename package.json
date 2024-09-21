@@ -4,9 +4,16 @@
   "main": "index.ts",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "dev": "concurrently \"yarn workspace @hslookup/backend dev\" \"yarn workspace @hslookup/frontend dev\"",
+    "backend-start": "yarn workspace @hslookup/backend nodemon src/app.ts"
+  },
   "repository": "https://github.com/jfox16/hslookup-monorepo.git",
   "author": "jfox16 <foxjonathanp@gmail.com>",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
 }

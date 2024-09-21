@@ -1,0 +1,49 @@
+.filter-form {
+  display: flex;
+  box-sizing: border-box;
+  width: 100%;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding: 16px 8px 16px 4px;
+}
+
+.filter-form .reset-button {
+  display: inline-block;
+  width: -moz-fit-content;
+  background-color: snow;
+  color: hsl(0, 0%, 10%);
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px 0 hsla(0, 0%, 0%, 70%);
+  font-weight: bold;
+  font-size: 0.8em;
+}
+
+.filter-form .reset-button:hover {
+  background-color: hsl(0, 0%, 95%);
+}
+
+.filter-form .reset-button:active {
+  background-color: hsl(0, 0%, 89%);
+}
+
+@media (max-width: 1200px), screen and (max-height: 500px) {
+  .input-field p {
+    font-size: 12px;
+  }
+
+  .input-field input {
+    font-size: 16px;
+  }
+
+  .input-field select {
+    font-size: 16px;
+  }
+
+  .lookup-button {
+    font-size: 16px;
+  }
+}

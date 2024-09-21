@@ -1,0 +1,78 @@
+.SelectedCardDisplay {
+  /* background-color: red; */
+  /* width: 90%;
+  height: 80%; */
+  /* max-width: 500px;
+  max-height: 500px; */
+  height:100%;
+  text-align: center;
+  animation-name: moveUp;
+  animation-duration: 0.3s;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* padding: 16px;
+  padding-top: 76px; */
+  /* overflow-y: auto; */
+}
+
+.SelectedCardDisplay .cardImage > img {
+  position: relative;
+  top: -2%;
+  left: 1%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+.SelectedCardDisplay .cardProperties {
+  max-width: 300px;
+  text-align: left;
+}
+
+.SelectedCardDisplay h3 {
+  font-size: 22px;
+  text-align: center;
+}
+
+.SelectedCardDisplay p {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(2%);
+    transition: transform 0.5s ease-in-out;
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@media screen and (max-width: 800px), screen and (max-height: 550px) {
+  .SelectedCardDisplay {
+    flex-direction: column;
+  }
+
+  .SelectedCardDisplay p {
+    font-size: 14px;
+  }
+
+  .SelectedCardDisplay h3 {
+    font-size: 16px;
+  }
+
+  .SelectedCardDisplay .cardImage {
+    height: 50vh;
+    margin-bottom: -15%;
+  }
+
+  .SelectedCardDisplay .cardProperties {
+    max-width: 200px;
+    height: 35vh;
+    text-align: left;
+    overflow-y: auto;
+  }
+}
