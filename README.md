@@ -1,7 +1,4 @@
 
 # HSLookup Monorepo
 
-Visit here: [hslookup.net](hslookup.net)
-
-HSLookup is a website for searching up Hearthstone cards. Provides useful info like searching cards with inherent
-keywords and average stats for a set of cards.
+**HS Lookup** is a tool designed to provide insightful statistics on Hearthstone cards, helping you make better decisions and improve your gameplay. Check it out here: hslookup.net (currently in development).
