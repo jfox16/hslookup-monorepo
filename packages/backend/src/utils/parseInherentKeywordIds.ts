@@ -8,7 +8,7 @@ export const parseInherentKeywordIds = (
   keywords: {name: string, id: number, regex: string}[]
 ) => {
 
-  // Annoying fancy stuff
+  // Gosh darn kragg
   text.replace('Charrrrrge', 'Charge');
 
   const keywordPattern = keywords.map(keyword => keyword.regex).join('|');
@@ -66,7 +66,7 @@ export const parseInherentKeywordIds = (
 
     if (tokenIsKeyword) {
       if (isStartOfSentence) {
-        const nextTokenIsLowercase = nextToken && /[a-z]/.test(nextToken.charAt(0));
+        const nextTokenIsLowercase = nextToken && /[a-z0-9]/.test(nextToken.charAt(0));
         if (nextTokenIsLowercase) {
           currentSentence.push(token);
         }

@@ -119,8 +119,6 @@ const generateKeywordTotals = (cards: Card[], metadata: Metadata) => {
     }
   });
 
-  console.info('generateKeywordTotals', { cards, metadata, keywordSlugs, keywordTotals })
-
   return keywordTotals;
 }
 

@@ -66,7 +66,7 @@
 
   .SelectedCardDisplay .cardImage {
     height: 50vh;
-    margin-bottom: -15%;
+    margin-bottom: -3vh;
   }
 
   .SelectedCardDisplay .cardProperties {

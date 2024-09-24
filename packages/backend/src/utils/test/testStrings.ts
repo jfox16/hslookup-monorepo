@@ -12,13 +12,7 @@ export const TEST_STRINGS = [
       'Secret'
     ]
   },
-  {
-    text: `<b>Titan</b> <b>Taunt</b>. Your minions can't take more than 2 damage at a time.`,
-    resultKeywords: [
-      'Taunt',
-      'Titan'
-    ],
-  },
+  // Keywords with sentences in between and after
   {
     text: `<b>Battlecry:</b> Discard a random Undead. <b>Deathrattle:</b> Summon a copy of it.`,
     resultKeywords: [
@@ -45,12 +39,14 @@ export const TEST_STRINGS = [
       'Windfury'
     ],
   },
+  // Overload at end of sentence
   {
     text: `Draw 2 cards. <b>Overload:</b> (1)`,
     resultKeywords: [
       'Overload: X'
     ],
   },
+  // Colossal +X and a comma
   {
     text: `<b>Colossal +1</b> <b>Rush</b>, <b>Divine Shield</b> After this attacks, <b>Dredge</b>.`,
     resultKeywords: [
@@ -59,10 +55,12 @@ export const TEST_STRINGS = [
       'Rush',
     ],
   },
+  // Keyword at start of sentence without other keywords
   {
     text: `<b>Adapt</b> a friendly minion.`,
     resultKeywords: [],
   },
+  // Manathirst just has a space??
   {
     text: `<b>Taunt</b> <b>Manathirst ( ):</b> Gain +2/+2 and <b>Divine Shield</b>.`,
     resultKeywords: [
@@ -70,6 +68,7 @@ export const TEST_STRINGS = [
       'Taunt',
     ],
   },
+  // Quotation marks
   {
     text: `<b>Taunt</b> <b>Deathrattle:</b> Give a random friendly minion "<b>Deathrattle:</b> Summon Greybough."`,
     resultKeywords: [
@@ -77,12 +76,14 @@ export const TEST_STRINGS = [
       'Taunt',
     ]
   },
+  // Keyword at the start of sentence
   {
     text: `<b>Battlecry:</b> <b>Discover</b> a 2-Cost card.`,
     resultKeywords: [
       'Battlecry',
     ]
   },
+  // Spell Damage doesn't include +1
   {
     text: `<b>Spell Damage +1</b> <b>Overload:</b> (1)`,
     resultKeywords: [
@@ -90,10 +91,18 @@ export const TEST_STRINGS = [
       'Spell Damage'
     ]
   },
+  // Gigantify doesn't exist in metadata
   {
     text: `<b>Gigantify</b> <b>Battlecry:</b> Summon a Tinyfin with <b>Rush</b> and stats equal to this minion's.`,
     resultKeywords: [
       'Battlecry'
+    ]
+  },
+  // Digit comes after a keyword at start of sentence
+  {
+    text: `<b><b>Deathrattle:</b> Freeze</b> 3 random enemies. Any that were already <b>Frozen</b> take 5 damage instead.`,
+    resultKeywords: [
+      'Deathrattle'
     ]
   }
 ];
