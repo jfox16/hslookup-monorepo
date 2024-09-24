@@ -1,5 +1,5 @@
 
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import Skeleton from 'react-loading-skeleton'
 
 import { useLookupContext } from 'context/LookupContext/LookupContext'
@@ -35,12 +35,8 @@ export const StatDisplay = () => {
   const {
     filterDescription,
     filteredCards,
-    filterFormOpen,
-    isMobile,
     metadata
   } = useLookupContext();
-
-  const [showMore, setShowMore] = useState(false)
 
   const isLoading = !metadata;
   // const isLoading = true;

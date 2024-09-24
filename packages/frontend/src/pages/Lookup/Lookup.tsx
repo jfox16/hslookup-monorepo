@@ -1,4 +1,3 @@
-import { useState, useEffect } from 'react'
 
 import { FixedBackground } from 'components/FixedBackground/FixedBackground'
 import { Header } from 'components/Header/Header'

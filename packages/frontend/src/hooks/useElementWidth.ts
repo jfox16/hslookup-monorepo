@@ -4,21 +4,23 @@ export const useElementWidth = (ref: React.RefObject<HTMLDivElement>) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
+    const currentRef = ref.current;
+
     const updateWidth = () => {
-      if (ref.current) {
-        setWidth(ref.current.getBoundingClientRect().width);
+      if (currentRef) {
+        setWidth(currentRef.getBoundingClientRect().width);
       }
     };
 
     const resizeObserver = new ResizeObserver(updateWidth);
 
-    if (ref.current) {
-      resizeObserver.observe(ref.current);
+    if (currentRef) {
+      resizeObserver.observe(currentRef);
     }
 
     return () => {
-      if (ref.current) {
-        resizeObserver.unobserve(ref.current);
+      if (currentRef) {
+        resizeObserver.unobserve(currentRef);
       }
     }
   }, [ref]);

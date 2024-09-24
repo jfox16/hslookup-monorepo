@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { ReactNode, createContext, useState, useContext, useEffect, useMemo, useCallback } from 'react';
 
-import { generateTables } from 'functions/dataGeneration';
+// import { generateTables } from 'functions/dataGeneration';
 import { fetchCardData } from 'functions/fetchCardData';
 import { DEBOUNCE_DELAY } from 'globalConstants';
 import { Metadata } from 'types/metadataTypes';
@@ -9,7 +9,7 @@ import { LookupFilter } from 'types/filterTypes';
 import { useDebouncedEffect } from 'utils/useDebouncedEffect';
 import { Card } from 'types/cardTypes';
 import { filterCards } from 'functions/filterCards';
-import { generateFilterDescription } from 'functions/generateFilterDescription';
+// import { generateFilterDescription } from 'functions/generateFilterDescription';
 import { useMedia } from 'react-use';
 
 const DEFAULT_FILTER: LookupFilter = {
@@ -64,7 +64,7 @@ const useLookupContextValue = () => {
     // return generateFilterDescription(filter, metadata);
     return '';
   }, [
-    filter
+    // filter
   ]);
 
   useDebouncedEffect(() => {

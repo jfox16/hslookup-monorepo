@@ -4,9 +4,9 @@ import { Card } from 'types/cardTypes';
 import { Metadata } from 'types/metadataTypes';
 import { KeywordTotal, StatName, StatTotal } from 'types/statDisplayTypes';
 
-import {
-  descriptionTokens,
-} from './filterConstants';
+// import {
+//   descriptionTokens,
+// } from './filterConstants';
 
 const DEFAULT_STAT_TOTAL = {
   min: Number.POSITIVE_INFINITY,
