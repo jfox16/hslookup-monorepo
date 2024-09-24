@@ -5,7 +5,7 @@
 
 ## Check it out here! 👉 [HSLookup.net](https://www.hslookup.net)
 
-## Technical stuff
+## Technical deets
 - The backend is running Node.js on an AWS EC2 instance. It queries the official Blizzard Hearthstone API to get up-to-date data, then processes it for use with the frontend.
 - Parses card text to determine the keywords that apply to the card itself, not just keywords that appear in the text.
 - The entire Hearthstone card library is not incredibly large (only ~2 MB) so the frontend can fetch the entire library and work with it on the client. This optimizes network usage and sorting time.
