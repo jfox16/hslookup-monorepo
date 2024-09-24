@@ -31,7 +31,9 @@ export const CardImage = ({
     else {
       setImageType('standard');
     }
-  }, [])
+  }, [
+    card.cardTypeId
+  ])
 
   const {
     marginLeft,

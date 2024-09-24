@@ -35,12 +35,8 @@ export const StatDisplay = () => {
   const {
     filterDescription,
     filteredCards,
-    filterFormOpen,
-    isMobile,
     metadata
   } = useLookupContext();
-
-  const [showMore, setShowMore] = useState(false)
 
   const isLoading = !metadata;
   // const isLoading = true;
