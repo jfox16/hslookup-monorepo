@@ -10,5 +10,5 @@
 - Parses card text to determine the keywords that apply to the card itself, not just keywords that appear in the text.
 - The entire Hearthstone card library is not incredibly large (only ~2 MB) so the frontend can fetch the entire library and work with it on the client. This optimizes network usage and sorting time.
 - The UI works great on desktop and mobile!
-- The frontend takes the mana cost, health, and attack of all filtered cards and shows histograms and averages after filtering.
+- The frontend takes the mana cost, health, and attack of all filtered cards and shows histogram graphs and averages after filtering.
 
