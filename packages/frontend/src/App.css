@@ -19,6 +19,21 @@ select {
 input.selectable,
 select.selectable {
   background-color: hsl(0, 0%, 25%);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 40px;
+  padding: 8px;
+  border-radius: 4px;
+  color: snow;
+  border: 1px solid hsl(0, 0%, 42%);
+  background-color: hsl(0, 0%, 28%);
+  font-size: 13px;
+  box-sizing: border-box;
+}
+input.selectable:focus {
+  outline: 1px solid white;
 }
 input.selectable.darkened,
 select.selectable.darkened {

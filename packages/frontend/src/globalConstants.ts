@@ -3,9 +3,8 @@ import { DropdownOption } from 'components/Dropdown/Dropdown'
 import packageJson from '../package.json'
 
 export const VERSION_NUMBER = packageJson.version
-// export const SERVER_URL = "https://hslookup.herokuapp.com/";
-export const SERVER_URL = 'http://localhost:5000/'
-export const DEBOUNCE_DELAY = 150
+export const SERVER_URL = process.env.NODE_ENV === 'production' ? 'https://api.hslookup.net/' : 'http://localhost:5000/';
+export const DEBOUNCE_DELAY = 150;
 
 export const DESKTOP_HEADER_HEIGHT = 60
 export const MOBILE_HEADER_HEIGHT = 50

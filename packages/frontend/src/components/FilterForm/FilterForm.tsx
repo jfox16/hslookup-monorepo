@@ -15,6 +15,7 @@ import { Footer } from './shared/Footer/Footer';
 import { Header } from './Header';
 
 import './FilterForm.css'
+import { TextFilter } from './fields/TextFilter';
 
 export const FilterForm = () => {
   const { metadata } = useLookupContext();
@@ -36,6 +37,7 @@ export const FilterForm = () => {
   return (
     <div className="filter-form">
       <Header style={{ marginBottom: 8 }} />
+      <TextFilter />
       <CardSetFilter />
       <CardTypeFilter />
       <ClassFilter />

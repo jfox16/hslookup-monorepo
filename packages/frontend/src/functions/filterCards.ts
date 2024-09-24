@@ -48,7 +48,7 @@ export const filterCards = async (
   }
 
   const filterByDiscoverable = (card: Card) => {
-    return card.bannedFromSideboard !== 1;
+    return card.bannedFromSideboard !== 1 || !card.text.includes('building your deck');
   }
 
   const filterByBasicKey = (card: Card, filterKey: keyof LookupFilter & keyof Card) => {
@@ -56,6 +56,14 @@ export const filterCards = async (
       return true;
     }
     return card[filterKey] === filter[filterKey];
+  }
+
+  const filterByText = (card: Card) => {
+    if (!filter.text) {
+      return card;
+    }
+    const regex = new RegExp(filter.text, 'i');
+    return regex.test(card.name) || regex.test(card.text);
   }
 
   const result = cards
@@ -70,6 +78,7 @@ export const filterCards = async (
     .filter(card => filterByBasicKey(card, 'health'))
     .filter(card => filterByBasicKey(card, 'rarityId'))
     .filter(card => filterByBasicKey(card, 'spellSchoolId'))
+    .filter(card => filterByText(card))
     .sort((a, b) => a.name.localeCompare(b.name))
     .sort((a, b) => a.manaCost - b.manaCost);
 

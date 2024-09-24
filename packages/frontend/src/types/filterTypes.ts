@@ -12,4 +12,6 @@ export interface LookupFilter {
   minionTypeId?: number;
   rarityId?: number;
   spellSchoolId?: number;
+  
+  text?: string;
 }

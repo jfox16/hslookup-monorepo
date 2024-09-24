@@ -3,15 +3,16 @@ import { useMemo, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 
 import { useLookupContext } from 'context/LookupContext/LookupContext'
-import { KeywordDisplay } from './components/KeywordDisplay/KeywordDisplay'
-import { StatDiv } from './components/StatDiv/StatDiv'
-import { StatDivSkeleton } from './components/StatDiv/StatDivSkeleton'
 import {
   generateStatTotals,
   generateKeywordTotals,
 } from 'modules/hearthstone-card-stats'
 import { DisplayStat } from 'types/statDisplayTypes'
 import { pluralize } from 'utils/pluralize'
+
+import { KeywordDisplay } from './components/KeywordDisplay/KeywordDisplay'
+import { StatDiv } from './components/StatDiv/StatDiv'
+import { StatDivSkeleton } from './components/StatDiv/StatDivSkeleton'
 
 import attackImg from 'img/stats/attack.png'
 import healthImg from 'img/stats/health.png'

@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"yarn workspace @hslookup/backend dev\" \"yarn workspace @hslookup/frontend dev\"",
-    "backend-start": "yarn workspace @hslookup/backend nodemon src/app.ts"
+    "backend-dev": "yarn workspace @hslookup/backend nodemon src/app.ts",
+    "backend-start": "tsc && pm2 start src/app.ts",
+    "frontend-dev": "yarn workspace @hslookup/frontend dev"
   },
   "repository": "https://github.com/jfox16/hslookup-monorepo.git",
   "author": "jfox16 <foxjonathanp@gmail.com>",
