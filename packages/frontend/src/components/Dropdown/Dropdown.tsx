@@ -36,9 +36,9 @@ function Dropdown({ value, onChange, options }: {
           </option>
         ))}
       </select>
-      <div className="DropdownChevronPositioner">
+      {/* <div className="DropdownChevronPositioner">
         <GoChevronDown style={{pointerEvents: 'none'}} />
-      </div>
+      </div> */}
     </div>
   )
 }
