@@ -27,6 +27,9 @@ jobs:
           cd packages/frontend
           yarn build
 
+      - name: Create CNAME file
+        run: echo 'hslookup.net' > packages/frontend/build/CNAME
+
       - name: Upload static site artifacts
         uses: actions/upload-pages-artifact@v1
         with:
