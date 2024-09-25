@@ -1,8 +1,6 @@
 import cns from 'classnames';
 import React from 'react';
 
-import { GoChevronDown } from 'react-icons/go'
-
 import './Dropdown.css'
 
 export interface DropdownOption {
