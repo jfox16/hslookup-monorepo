@@ -37,6 +37,10 @@ select.selectable.darkened {
   background-color: hsl(0, 0%, 15%);
   border-color: hsl(0, 0%, 28%);
 }
+
+.selectable {
+  cursor: pointer;
+}
 .selectable:hover {
   opacity: 0.9;
 }

@@ -1,5 +1,4 @@
-
-
+import { Keyword } from "./metadataTypes";
 
 export interface DisplayStat {
   name: string;
@@ -9,8 +8,9 @@ export interface DisplayStat {
 }
 
 export interface KeywordTotal {
-  name: string;
+  keyword: Keyword;
   count: number;
+  decimal: number;
 }
 
 export type StatName = 'attack'|'health'|'manaCost';

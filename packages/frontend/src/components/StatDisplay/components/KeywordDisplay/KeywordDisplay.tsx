@@ -1,72 +1,50 @@
-import { useMemo, useState } from 'react'
-import { FiMoreHorizontal } from 'react-icons/fi'
-import { MdExpandLess } from 'react-icons/md'
+import { useMemo, useState } from 'react';
+import { FiMoreHorizontal } from 'react-icons/fi';
+import { MdExpandLess } from 'react-icons/md';
 
-import IconButton from 'components/IconButton'
-import { useLookupContext } from 'context/LookupContext/LookupContext'
-import { KeywordTotal } from 'types/statDisplayTypes'
+import IconButton from 'components/IconButton';
+import { useLookupContext } from 'context/LookupContext/LookupContext';
+import { generateKeywordTotals } from 'modules/hearthstone-card-stats';
 
-import './KeywordDisplay.css'
-import { KeywordDisplayItem } from './KeywordDisplayItem'
+import { KeywordDisplayItem } from './KeywordDisplayItem';
 
-export interface KeywordDisplayProps {
-  keywordTotals: Record<string, KeywordTotal>;
-}
+import './KeywordDisplay.css';
 
-export const KeywordDisplay = ({ keywordTotals }: KeywordDisplayProps) => {
-  const { filteredCards, isMobile } = useLookupContext();
+export const KeywordDisplay = () => {
+  const { metadata, filteredCards, isMobile } = useLookupContext();
 
   const [showMore, setShowMore] = useState(false);
 
-  const keywordsToShow = useMemo(() => {
-    if (!keywordTotals) {
-      return [];
-    }
-    return Object.keys(keywordTotals)
-      .filter(key => {
-        return keywordTotals[key].count > 0;
-      });
+  const keywordTotals = useMemo(() => {
+    return generateKeywordTotals(filteredCards, metadata);
   }, [
-    keywordTotals
+    filteredCards,
+    metadata
   ]);
 
-  const displayItems = useMemo(() => {
-    const result = keywordsToShow
-      .map((keyword) => {
-        const total = keywordTotals[keyword]
-        const decimal = total.count / filteredCards.length
-        const name = total.name
-        return { name, decimal };
-      })
-      .sort((a, b) => b.decimal - a.decimal);
-  
-    return (isMobile && !showMore) ? result.slice(0, 6) : result;  
+  const totalsToShow = useMemo(() => {
+    const result = keywordTotals.sort((a, b) => b.decimal - a.decimal);
+    return (isMobile && !showMore) ? result.slice(0, 6) : result;
   }, [
-    filteredCards.length,
-    isMobile,
-    keywordsToShow,
     keywordTotals,
+    isMobile,
     showMore,
-  ])
+  ]);
 
-  const shouldDisplay = useMemo(() => {
-    return displayItems.length > 0 && displayItems.some(item => item.decimal > 0);
-  }, [
-    displayItems
-  ])
-
-  return shouldDisplay ? (
+  return totalsToShow.length > 0 ? (
     <div style={{ textAlign: 'center' }}>
       <div className="KeywordDisplay">
         <div className="Keywords">
-          {displayItems.map((item) => {
+          {totalsToShow.map(({ decimal, keyword }) => {
+            const { id, name, } = keyword;
             return (
               <KeywordDisplayItem
-                name={item.name}
-                decimal={item.decimal}
-                key={item.name}
+                keywordId={id}
+                name={name}
+                decimal={decimal}
+                key={id}
               />
-            )
+            );
           })}
           <KeywordDisplayItem
             name="Discover Chance"

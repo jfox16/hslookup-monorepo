@@ -3,6 +3,7 @@ import _ from 'lodash';
 import { Card } from 'types/cardTypes';
 import { Metadata } from 'types/metadataTypes';
 import { KeywordTotal, StatName, StatTotal } from 'types/statDisplayTypes';
+import { arrayToLookupMap } from 'utils/arrayToLookupMap';
 
 // import {
 //   descriptionTokens,
@@ -92,30 +93,32 @@ const generateStatTotals = (cards: Card[]) => {
 
 const generateKeywordTotals = (cards: Card[], metadata: Metadata) => {
   if (!Array.isArray(cards) || !Array.isArray(metadata.keywords)) {
-    return undefined;
+    return [];
   }
 
-  const keywordSlugs: Record<string, string> = {};
-  const keywordTotals: Record<string, KeywordTotal> = {};
+  const keywordIdMap = arrayToLookupMap(metadata.keywords, 'id');
+  const keywordIdCounts: Record<number, number> = {};
 
-  // Populate dicts
-  metadata.keywords.forEach((keyword) => {
-    keywordSlugs[keyword.id] = keyword.slug;
-    keywordTotals[keyword.slug] = {
-      name: keyword.name,
-      count: 0
-    };
-  })
-
-  // Count keywords
-  cards.forEach((card) => {
+  cards.forEach(card => {
     if (card.keywordIds) {
-      card.keywordIds.forEach((keywordId) => {
-        let slug = keywordSlugs[keywordId];
-        if (keywordTotals[slug]) {
-          keywordTotals[slug].count++
-        }
+      card.keywordIds.forEach(keywordId => {
+        keywordIdCounts[keywordId] = (keywordIdCounts[keywordId] ?? 0) + 1;
       })
+    }
+  });
+
+  const keywordTotals: KeywordTotal[] = [];
+
+  Object.keys(keywordIdCounts).forEach((keywordId) => {
+    const id = +keywordId;
+    const keyword = keywordIdMap[id];
+    const count = keywordIdCounts[id];
+    if (keyword && count) {
+      keywordTotals.push({
+        keyword: keywordIdMap[id],
+        count,
+        decimal: count / cards.length,
+      });
     }
   });
 

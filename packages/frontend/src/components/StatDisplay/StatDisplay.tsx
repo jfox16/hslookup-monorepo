@@ -5,7 +5,6 @@ import Skeleton from 'react-loading-skeleton'
 import { useLookupContext } from 'context/LookupContext/LookupContext'
 import {
   generateStatTotals,
-  generateKeywordTotals,
 } from 'modules/hearthstone-card-stats'
 import { DisplayStat } from 'types/statDisplayTypes'
 import { pluralize } from 'utils/pluralize'
@@ -39,14 +38,6 @@ export const StatDisplay = () => {
   } = useLookupContext();
 
   const isLoading = !metadata;
-  // const isLoading = true;
-
-  const keywordTotals = useMemo(() => {
-    return generateKeywordTotals(filteredCards, metadata);
-  }, [
-    filteredCards,
-    metadata
-  ])
 
   const statTotals = useMemo(() => {
     return generateStatTotals(filteredCards);
@@ -91,9 +82,7 @@ export const StatDisplay = () => {
           : [new Array(3)].map((_, i) => <StatDivSkeleton key={i} />)}
       </div>
 
-      {keywordTotals && (
-        <KeywordDisplay keywordTotals={keywordTotals} />
-      )}
+      <KeywordDisplay />
     </div>
   )
 }
