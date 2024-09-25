@@ -24,7 +24,7 @@ select.selectable {
   padding: 8px;
   border-radius: 4px;
   color: snow;
-  border: 1px solid hsl(0, 0%, 42%);
+  border: 1px solid hsl(0, 0%, 46%);
   background-color: hsl(0, 0%, 28%);
   font-size: 13px;
   box-sizing: border-box;
@@ -34,17 +34,14 @@ input.selectable:focus {
 }
 input.selectable.darkened,
 select.selectable.darkened {
-  background-color: hsla(0, 0%, 15%);
+  background-color: hsl(0, 0%, 15%);
+  border-color: hsl(0, 0%, 28%);
 }
 .selectable:hover {
   opacity: 0.9;
 }
 .selectable:active {
   opacity: 0.8;
-}
-
-.select.selectable.option {
-  background-color: red;
 }
 
 .App {

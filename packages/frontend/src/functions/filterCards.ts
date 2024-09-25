@@ -31,13 +31,13 @@ export const filterCards = async (
   const allId = metadata.minionTypes.find(minionType => minionType.slug === 'all')?.id;
 
   const filterByMinionType = (card: Card) => {
-    if (!filter.minionTypeId || filter.minionTypeId === allId) {
+    if (!filter.minionTypeId) {
       return true;
     }
-    if (card.multiTypeIds?.some(typeId => typeId === filter.minionTypeId)) {
+    if (card.multiTypeIds?.some(typeId => typeId === filter.minionTypeId || typeId === allId)) {
       return true;
     }
-    return card.minionTypeId === filter.minionTypeId;
+    return card.minionTypeId === filter.minionTypeId || card.minionTypeId === allId;
   }
 
   const filterByKeyword = (card: Card) => {

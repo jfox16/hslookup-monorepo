@@ -10,20 +10,20 @@ import './SelectedCardDisplay.css';
 export const SelectedCardDisplay = () => {
   const { metadata, selectedCard } = useLookupContext();
 
+  useEffect(() => {
+    if (selectedCard) {
+      console.info('Selected', selectedCard.name, selectedCard);
+    }
+  }, [
+    selectedCard
+  ]);
+
   const cardValues = useMemo(() => {
     return cardToReadableValues(selectedCard, metadata);
   }, [
     metadata,
     selectedCard
-  ])
-
-  useEffect(() => {
-    if (cardValues) {
-      console.info('Selected', cardValues.name, cardValues);
-    }
-  }, [
-    cardValues
-  ])
+  ]);
 
   return cardValues ? (
     <div className="SelectedCardDisplay">

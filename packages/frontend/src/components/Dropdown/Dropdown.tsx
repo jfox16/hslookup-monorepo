@@ -6,7 +6,7 @@ import './Dropdown.css'
 export interface DropdownOption {
   className?: string,
   disabled?: boolean,
-  label?: React.ReactNode,
+  label?: string,
   style?: React.CSSProperties,
   value: string|number|undefined,
   key?: string|number,
@@ -28,7 +28,7 @@ function Dropdown({ value, onChange, options }: {
           <option
             {...option}
             key={option.key ?? option.value}
-            label=""
+            label={option.label}
           >
             {option.label ?? option.value}
           </option>
