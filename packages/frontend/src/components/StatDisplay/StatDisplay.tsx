@@ -34,10 +34,8 @@ export const StatDisplay = () => {
   const {
     filterDescription,
     filteredCards,
-    metadata
+    isLoading,
   } = useLookupContext();
-
-  const isLoading = !metadata;
 
   const statTotals = useMemo(() => {
     return generateStatTotals(filteredCards);

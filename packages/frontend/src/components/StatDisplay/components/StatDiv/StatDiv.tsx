@@ -16,7 +16,7 @@ export interface StatDivProps {
 }
 
 export const StatDiv = ({ stat, totals, filterFormOpen }: StatDivProps) => {
-  const { isMobile } = useLookupContext();
+  const { isLoading, isMobile } = useLookupContext();
   const [showMore, setShowMore] = useState(false)
 
   const showMoreButton = (
@@ -84,7 +84,7 @@ export const StatDiv = ({ stat, totals, filterFormOpen }: StatDivProps) => {
             data={totals.frequencies}
             minX={totals.min}
             maxX={totals.max}
-            isLoading={false}
+            isLoading={isLoading}
           />
           <div
             className="StatSummaryDiv"

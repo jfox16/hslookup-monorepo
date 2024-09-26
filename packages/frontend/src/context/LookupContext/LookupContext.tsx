@@ -42,14 +42,19 @@ const useLookupContextValue = () => {
   const [filteredCards, setFilteredCards] = useState<Card[]>([]);
   const [selectedCard, setSelectedCard] = useState<Card | null>(null);
   const [isFilterChanged, setIsFilterChanged] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetchCardData()
       .then(cardData => {
+        console.info('Fetched cardData:', cardData)
         if (cardData) {
           setCards(cardData.cards);
           setMetadata(cardData.metadata);
         }
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }, [])
 
@@ -132,6 +137,7 @@ const useLookupContextValue = () => {
     filteredCards,
     setFilteredCards,
     isFilterChanged,
+    isLoading,
     isMobile,
     metadata,
     setMetadata,
@@ -151,6 +157,7 @@ const useLookupContextValue = () => {
     filteredCards,
     setFilteredCards,
     isFilterChanged,
+    isLoading,
     isMobile,
     selectedCard,
     setSelectedCard

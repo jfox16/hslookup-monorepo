@@ -15,7 +15,8 @@ export const MobileFilterForm = () => {
   return (
     <div className="MobileFilterForm fullscreen">
       <div className="MobileFilterHeader">
-        <h3>Filters</h3>
+        {/* Load-bearing div */}
+        <div />
         <IconButton onClick={() => setFilterFormOpen(false)}>
           <CgClose />
         </IconButton>

@@ -1,5 +1,5 @@
-import { useCallback, useMemo } from 'react';
 import cns from 'classnames';
+import { useCallback, useMemo } from 'react';
 
 import { useLookupContext } from 'context/LookupContext/LookupContext';
 
@@ -19,26 +19,20 @@ export const KeywordDisplayItem = ({ keywordId, name, decimal }: KeywordDisplayI
     keywordId
   ])
 
-  const selectable = useMemo(() => {
-    return keywordId !== undefined && !selected;
-  }, [
-    keywordId,
-    selected,
-  ]);
-
   const handleClick = useCallback(() => {
     if (keywordId !== undefined) {
-      setFilterValue('keywordId', keywordId);
+      setFilterValue('keywordId', selected ? undefined : keywordId);
     }
   }, [
     keywordId,
-    setFilterValue
+    selected,
+    setFilterValue,
   ]);
 
   return (
     <div
       className={cns('KeywordDisplayDiv', {
-        selectable,
+        selectable: keywordId !== undefined,
         selected
       })}
       onClick={handleClick}

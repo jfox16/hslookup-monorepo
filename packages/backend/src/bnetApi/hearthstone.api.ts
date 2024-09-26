@@ -4,24 +4,24 @@ import { getAccessToken } from "./auth.api"
 
 const locale = 'en_US';
 
-const KEYS_TO_KEEP = [
-  'attack',
-  'cardTypeId',
-  'cardSetId',
-  'childIds',
-  'classId',
-  'health',
-  'id',
-  'image',
-  'keywordIds',
-  'manaCost',
-  'minionTypeId',
-  'multiClassIds',
-  'name',
-  'rarityId',
-  'spellSchoolId',
-  'text',
-];
+// const KEYS_TO_KEEP = [
+//   'attack',
+//   'cardTypeId',
+//   'cardSetId',
+//   'childIds',
+//   'classId',
+//   'health',
+//   'id',
+//   'image',
+//   'keywordIds',
+//   'manaCost',
+//   'minionTypeId',
+//   'multiClassIds',
+//   'name',
+//   'rarityId',
+//   'spellSchoolId',
+//   'text',
+// ];
 
 const CARD_KEYS_TO_OMIT = [
   'artistName',

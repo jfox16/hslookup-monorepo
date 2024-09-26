@@ -2,3 +2,7 @@
 .CardImageContainer {
   overflow: hidden;
 }
+
+.cardPlaceholder {
+  width: 100%;
+}

@@ -25,24 +25,20 @@ export const Footer = () => {
 
       <p>HSLookup v{VERSION_NUMBER}</p>
 
-      <p>Updated 2024/09/12 </p>
+      <p>Updated 2024/09/25 </p>
 
       <div style={{ height: '8px' }} />
+
+      <p>
+        <a href="https://github.com/jfox16/hslookup-monorepo">
+          <FaGithubSquare /> HSLookup GitHub Repository
+        </a>
+      </p>
 
       <p>
         For comments or suggestions, email me at:{' '}
         <a href="mailto:FoxJonathanP@gmail.com">FoxJonathanP@gmail.com</a>
       </p>
-
-      <div style={{ height: '8px' }} />
-
-      <div className="icons">
-        <p>
-          <a href="https://github.com/jfox16/hs-lookup">
-            <FaGithubSquare />
-          </a>
-        </p>
-      </div>
 
       <div style={{ height: '8px' }} />
     </div>

@@ -72,7 +72,6 @@ export const NumericFilterGroup = () => {
           options={attackOptions}
           value={filter.attack ?? ''}
           onChange={(value) => {
-            console.info({value})
             setFilterValue('attack', value === '' ? undefined : +value)}}
         />
       </div>

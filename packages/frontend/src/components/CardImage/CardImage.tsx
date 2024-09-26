@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 
+import cardPlaceholder from 'img/card-placeholder.png';  
 import { Card } from "types/cardTypes";
 
 import './CardImage.css';
@@ -16,10 +17,14 @@ export const CardImage = ({
   onClick
 }: CardImageProps) => {
   const [ imageType, setImageType ] = useState<ImageType | undefined>();
+  const [ loaded, setLoaded ] = useState(false);
 
   const onLoad = useCallback((e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     const target = e.target as HTMLImageElement;
-    // Set specific image scale images with these dimensions
+    /**
+     * Certain card images are scaled differently from others. In order to maintain a consistent look,
+     * we check for these specific cases and adjust the image CSS to make them match.
+     */
     if (target.naturalWidth === 404 && target.naturalHeight === 558) {
       if (card.cardTypeId === 39) {
         setImageType('miniLocation');
@@ -31,6 +36,7 @@ export const CardImage = ({
     else {
       setImageType('standard');
     }
+    setLoaded(true);
   }, [
     card.cardTypeId
   ])
@@ -61,6 +67,7 @@ export const CardImage = ({
 
   return (
     <div className="CardImageContainer">
+      {!loaded && <img alt="Card Placeholder" className="cardPlaceholder" src={cardPlaceholder} />}
       <img
         alt={card.name}
         src={card.image}
@@ -70,7 +77,7 @@ export const CardImage = ({
           cursor: onClick ? 'pointer' : undefined,
           marginLeft,
           width,
-          visibility: imageType ? undefined : 'hidden',
+          display: loaded ? undefined : 'none',
         }}
       />
     </div>

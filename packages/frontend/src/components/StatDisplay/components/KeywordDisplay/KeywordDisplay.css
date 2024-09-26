@@ -22,7 +22,7 @@
 }
 
 .KeywordDisplayDiv.selected {
-  border-color: hsl(0, 0%, 46%)
+  border-color: snow;
 }
 
 .KeywordPercentage {

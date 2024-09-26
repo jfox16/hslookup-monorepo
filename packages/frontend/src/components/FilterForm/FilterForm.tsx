@@ -18,9 +18,7 @@ import './FilterForm.css'
 import { TextFilter } from './fields/TextFilter';
 
 export const FilterForm = () => {
-  const { metadata } = useLookupContext();
-
-  const isLoading = !metadata;
+  const { isLoading } = useLookupContext();
 
   if (isLoading) {
     return (
