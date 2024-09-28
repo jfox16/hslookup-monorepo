@@ -1,5 +1,5 @@
 
-# HSLookup Monorepo
+# HS Lookup Monorepo
 
 **HS Lookup** is a tool designed to provide insightful statistics on Hearthstone cards, helping you make better decisions and improve your gameplay.
 
