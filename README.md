@@ -3,7 +3,7 @@
 
 **HS Lookup** is a tool designed to provide insightful statistics on Hearthstone cards, helping you make better decisions and improve your gameplay.
 
-## Check it out here! 👉 [HSLookup.net](https://www.hslookup.net)
+## Check it out here 👉 [HSLookup.net](https://www.hslookup.net)
 
 ## Technical deets
 - The backend is running Node.js on an AWS EC2 instance. It queries the official Blizzard Hearthstone API to get up-to-date data, then processes it for use with the frontend.
