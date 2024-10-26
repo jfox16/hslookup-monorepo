@@ -28,7 +28,7 @@ export const PercentageDisplayItem = ({
       <p className="name">{name}</p>
       {decimal ? (
         <p className="Percentage">
-          {makePercentage(decimal)}
+          {makePercentage(decimal)}<span className='percentSign'>%</span>
         </p>
       ) : null}
     </div>
@@ -38,8 +38,8 @@ export const PercentageDisplayItem = ({
 const makePercentage = (decimalValue: number) => {
   const percent = decimalValue * 100
   if (percent < 0.2) {
-    return percent.toFixed(2) + '%'
+    return percent.toFixed(2);
   } else {
-    return percent.toFixed(1) + '%'
+    return percent.toFixed(1);
   }
 }

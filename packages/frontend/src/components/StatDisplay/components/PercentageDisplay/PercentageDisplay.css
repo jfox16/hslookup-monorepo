@@ -27,7 +27,11 @@
 
 .Percentage {
   font-size: 18px;
-  color: hsl(0, 0%, 80%);
+  color: hsl(0, 0%, 78%);
+}
+
+.Percentage .percentSign {
+  font-size: 0.8em;
 }
 
 .PercentageDisplay .title {
@@ -41,6 +45,9 @@
     font-size: 14px;
   }
   .Percentage {
+    font-size: 16px;
+  }
+  .PercentageDisplay .title {
     font-size: 16px;
   }
 }
