@@ -15,14 +15,14 @@ export const CardSetFilter = () => {
     return [
       {
         value: 'formats-divider',
-        label: '───── Formats ─────',
+        label: '── Formats ──',
         disabled: true
       },
       { value: 'wild', label: 'Wild' },
       { value: 'standard', label: 'Standard' },
       {
         value: 'sets-divider',
-        label: '───── Sets ─────',
+        label: '─── Sets ───',
         disabled: true
       },
       ...(metadata?.cardSets ?? []).map(set => ({ value: set.id, label: set.name })),

@@ -54,7 +54,7 @@ export const StatDiv = ({ stat, totals, filterFormOpen }: StatDivProps) => {
               <StatSummary
                 mean={totals.mean}
                 median={totals.median}
-                stdev={totals.stdev}
+                // stdev={totals.stdev}
               />
             </div>
           </div>
@@ -93,7 +93,7 @@ export const StatDiv = ({ stat, totals, filterFormOpen }: StatDivProps) => {
             <StatSummary
               mean={totals.mean}
               median={totals.median}
-              stdev={totals.stdev}
+              // stdev={totals.stdev}
             />
           </div>
         </div>

@@ -1,60 +1,91 @@
-import { useMemo } from 'react';
+import { useMemo, useState } from 'react';
 
 import { useLookupContext } from 'context/LookupContext/LookupContext';
 import { generateKeywordTotals } from 'modules/hearthstone-card-stats';
 
-import { KeywordDisplayItem } from './KeywordDisplayItem';
+import { PercentageDisplay } from '../PercentageDisplay/PercentageDisplay';
+import { PercentageDisplayItemProps } from '../PercentageDisplay/PercentageDisplayItem';
 
-import './KeywordDisplay.css';
+const defaultKeywords = new Set([
+  'Taunt',
+  'Divine Shield',
+  'Charge',
+  'Deathrattle',
+  'Poisonous',
+  'Lifesteal',
+  'Rush',
+  'Reborn',
+  'Colossal +X',
+  'Titan',
+  'Starship',
+]);
 
 export const KeywordDisplay = () => {
-  const { metadata, filteredCards } = useLookupContext();
+  const { metadata, filteredCards, filter, setFilterValue } = useLookupContext();
 
-  // const [showMore, setShowMore] = useState(false);
+  const [showMore, setShowMore] = useState(false);
 
-  const keywordTotals = useMemo(() => {
-    return generateKeywordTotals(filteredCards, metadata)
+  const {
+    keywordTotals,
+    hasHiddenKeywords
+  } = useMemo(() => {
+    const allTotals = generateKeywordTotals(filteredCards, metadata)
       .sort((a, b) => b.decimal - a.decimal);
+    const defaultTotals = allTotals.filter((item) => defaultKeywords.has(item.keyword.name));
+    return {
+      keywordTotals: showMore ? allTotals : defaultTotals,
+      hasHiddenKeywords: allTotals.length > defaultTotals.length,
+    }
   }, [
     filteredCards,
-    metadata
+    metadata,
+    showMore,
   ]);
 
-  return keywordTotals.length > 0 ? (
-    <div style={{ textAlign: 'center' }}>
-      <div className="KeywordDisplay">
-        <div className="Keywords">
-          {keywordTotals.map(({ decimal, keyword }) => {
-            const { id, name, } = keyword;
-            return (
-              <KeywordDisplayItem
-                keywordId={id}
-                name={name}
-                decimal={decimal}
-                key={id}
-              />
-            );
-          })}
-          <KeywordDisplayItem
-            name="Discover Chance"
-            decimal={Math.min(1, 3 / filteredCards.length)}
-          />
-          <KeywordDisplayItem
-            name="Draw Chance"
-            decimal={1 / filteredCards.length}
-          />
-        </div>
-        {/* {isMobile && (
-          <div style={{ textAlign: 'center' }}>
-            <IconButton
-              onClick={() => setShowMore(!showMore)}
-              style={{ fontSize: 24 }}
-            >
-              {showMore ? <MdExpandLess /> : <FiMoreHorizontal />}
-            </IconButton>
-          </div>
-        )} */}
-      </div>
-    </div>
-  ) : <></>;
+  const displayItems = useMemo(() => {
+    const items: PercentageDisplayItemProps[] = keywordTotals.map(({ decimal, keyword }) => {
+      const selected = keyword.id !== undefined && filter.keywordId === keyword.id;
+      const onClick = () => {
+        if (keyword.id !== undefined) {
+          setFilterValue('keywordId', selected ? undefined : keyword.id);
+        }
+      }
+      return {
+        decimal,
+        name: keyword.name,
+        id: keyword.id,
+        onClick,
+        selected,
+      }
+    });
+
+    items.push({
+      className: 'secondary',
+      name: '(Discover)',
+      decimal: Math.min(1, 3 / filteredCards.length)
+    });
+
+    items.push({
+      className: 'secondary',
+      name: '(Draw)',
+      decimal: 1 / filteredCards.length
+    });
+
+    return items;
+  }, [
+    filter.keywordId,
+    filteredCards.length,
+    keywordTotals,
+    setFilterValue
+  ]);
+
+  return (
+    <PercentageDisplay
+      displayItems={displayItems}
+      hasHiddenItems={hasHiddenKeywords}
+      showMore={showMore}
+      setShowMore={setShowMore}
+      title="Keywords"
+    />
+  )
 }

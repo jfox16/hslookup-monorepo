@@ -1,8 +1,7 @@
-import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 import './StatSummary.css'
 
-function StatSummary({ mean, median, stdev }) {
+function StatSummary({ mean, median }) {
   return (
     <div className="StatSummary">
       <div className="StatSummaryColumn">
@@ -17,12 +16,12 @@ function StatSummary({ mean, median, stdev }) {
           {median ? median.toFixed(1) : <Skeleton />}
         </p>
       </div>
-      <div className="StatSummaryColumn">
+      {/* <div className="StatSummaryColumn">
         <p className="StatSummaryLabel">{stdev ? 'StDev' : <Skeleton />}</p>
         <p className="StatSummaryValue">
           {stdev ? stdev.toFixed(1) : <Skeleton />}
         </p>
-      </div>
+      </div> */}
     </div>
   )
 }

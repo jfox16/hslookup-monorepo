@@ -18,6 +18,7 @@ import healthImg from 'img/stats/health.png'
 import manaCostImg from 'img/stats/mana.png'
 
 import './StatDisplay.css'
+import { StatLineDisplay } from './components/StatLineDisplay/StatLineDisplay'
 
 const statsToTrack: DisplayStat[] = [
   { name: 'Attack', accessor: 'attack', color: '#FEDC42', image: attackImg },
@@ -80,6 +81,7 @@ export const StatDisplay = () => {
           : [new Array(3)].map((_, i) => <StatDivSkeleton key={i} />)}
       </div>
 
+      <StatLineDisplay />
       <KeywordDisplay />
     </div>
   )

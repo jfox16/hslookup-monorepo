@@ -48,8 +48,10 @@ export const fetchAllCards = async () => {
       const response = await axios.get(
         requestUrl,
         {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
           params: {
-            'access_token': accessToken,
             locale,
             page,
             pageSize,
@@ -90,8 +92,10 @@ export const fetchMetadata = async () => {
       const response = await axios.get(
         requestUrl,
         {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
           params: {
-            'access_token': accessToken,
             locale,
           }
         }

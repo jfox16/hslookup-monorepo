@@ -38,6 +38,10 @@ select.selectable.darkened {
   border-color: hsl(0, 0%, 28%);
 }
 
+select.selectable.darkened {
+  color: hsl(0, 0%, 56%)
+}
+
 .selectable {
   cursor: pointer;
 }

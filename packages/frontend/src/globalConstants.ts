@@ -11,4 +11,4 @@ export const MOBILE_HEADER_HEIGHT = 50
 export const SIDEBAR_WIDTH = 380
 export const MOBILE_BREAKPOINT_WIDTH = 120;
 
-export const ANY_OPTION: DropdownOption = { label: '', value: undefined, key: 'any' };
+export const ANY_OPTION: DropdownOption = { label: 'Any', value: undefined, key: 'any' };

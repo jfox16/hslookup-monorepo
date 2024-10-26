@@ -80,11 +80,11 @@ const generateStatTotals = (cards: Card[]) => {
       }
 
       // StDev
-      let sumDiffSq = 0
-      totals[stat].values.forEach(
-        (value) => (sumDiffSq += Math.pow(value - totals[stat].mean, 2))
-      )
-      totals[stat].stdev = Math.sqrt(sumDiffSq / totals[stat].values.length)
+      // let sumDiffSq = 0
+      // totals[stat].values.forEach(
+      //   (value) => (sumDiffSq += Math.pow(value - totals[stat].mean, 2))
+      // )
+      // totals[stat].stdev = Math.sqrt(sumDiffSq / totals[stat].values.length)
     }
   })
 

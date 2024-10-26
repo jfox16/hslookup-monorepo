@@ -11,11 +11,12 @@ import { Card } from 'types/cardTypes';
 import { filterCards } from 'functions/filterCards';
 // import { generateFilterDescription } from 'functions/generateFilterDescription';
 import { useMedia } from 'react-use';
+import { getStatLineFrequencies } from './getStatLineFrequencies';
 
 const DEFAULT_FILTER: LookupFilter = {
   classIds: new Set(),
   cardSetId: 'standard',
-  cardTypeId: 4, // Minion
+  // cardTypeId: 4, // Minion
 }
 
 const DEFAULT_METADATA: Metadata = {
@@ -122,6 +123,12 @@ const useLookupContextValue = () => {
     filter
   ]);
 
+  const statLineFrequencies = useMemo(() => {
+    return getStatLineFrequencies(filteredCards);
+  }, [
+    filteredCards
+  ])
+
   const isMobile = useMedia('(max-width: 800px)');
 
   return useMemo(() => ({
@@ -142,7 +149,8 @@ const useLookupContextValue = () => {
     metadata,
     setMetadata,
     selectedCard,
-    setSelectedCard
+    setSelectedCard,
+    statLineFrequencies
   }), [
     cards,
     metadata,
@@ -160,7 +168,8 @@ const useLookupContextValue = () => {
     isLoading,
     isMobile,
     selectedCard,
-    setSelectedCard
+    setSelectedCard,
+    statLineFrequencies
   ]);
 }
 

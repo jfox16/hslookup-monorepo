@@ -1,4 +1,4 @@
-.KeywordDisplay {
+.PercentageDisplay {
   border: solid 1px hsl(0, 0%, 28%);
   border-radius: 6px;
   background-color: hsla(0, 0%, 14%, 80%);
@@ -6,34 +6,41 @@
   margin: 3px 2px;
 }
 
-.Keywords {
+.Percentages {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.KeywordDisplayDiv {
-  margin: 2px 3px;
+.PercentageDisplayDiv {
+  margin: 2px 0;
   padding: 3px 5px;
   text-align: center;
   border: 1px solid transparent;
   border-radius: 4px;
 }
 
-.KeywordDisplayDiv.selected {
+.PercentageDisplayDiv.selected {
   border-color: snow;
 }
 
-.KeywordPercentage {
+.Percentage {
   font-size: 18px;
+  color: hsl(0, 0%, 80%);
+}
+
+.PercentageDisplay .title {
+  font-weight: normal;
+  font-size: 18px;
+  margin: 8px 0;
 }
 
 @media screen and (max-width: 1200px), screen and (max-height: 500px) {
-  .KeywordDisplayDiv {
+  .PercentageDisplayDiv {
     font-size: 14px;
   }
-  .KeywordPercentage {
+  .Percentage {
     font-size: 16px;
   }
 }
