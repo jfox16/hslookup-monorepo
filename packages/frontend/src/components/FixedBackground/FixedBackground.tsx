@@ -1,5 +1,4 @@
-
-import backgroundImage from 'img/bg/forged-in-the-barrens-bg.png';
+import backgroundImage from 'img/bg/Masthead_2600.jpg';
 
 import './FixedBackground.css'
 

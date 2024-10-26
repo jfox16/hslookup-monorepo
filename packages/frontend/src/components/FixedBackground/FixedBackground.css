@@ -8,4 +8,5 @@
   background-position: center;
   background-size: cover;
   z-index: -100;
+  opacity: 0.1;
 }
