@@ -1,4 +1,4 @@
-import backgroundImage from 'img/bg/Masthead_2600.jpg';
+import backgroundImage from 'img/bg/great-dark-beyond-bg.jpg';
 
 import './FixedBackground.css'
 
