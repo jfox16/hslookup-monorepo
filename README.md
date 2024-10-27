@@ -5,6 +5,9 @@
 
 ## Check it out here 👉 [HSLookup.net](https://www.hslookup.net)
 
+![image](https://github.com/user-attachments/assets/9fa584b2-7db6-4426-a7da-e99e020db4a8)
+
+
 ## Technical deets
 - The backend is running Node.js on an AWS EC2 instance. It queries the official Blizzard Hearthstone API to get up-to-date data, then processes it for use with the frontend.
 - Frontend is React with Typescript, deployed to GitHub pages. 
