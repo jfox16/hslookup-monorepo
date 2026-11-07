@@ -1,16 +1,29 @@
+import deathknightIcon from 'img/class-icons/deathknight.png';
+import demonhunterIcon from 'img/class-icons/demonhunter.png';
+import druidIcon from 'img/class-icons/druid.png';
+import hunterIcon from 'img/class-icons/hunter.png';
+import mageIcon from 'img/class-icons/mage.png';
+import paladinIcon from 'img/class-icons/paladin.png';
+import priestIcon from 'img/class-icons/priest.png';
+import rogueIcon from 'img/class-icons/rogue.png';
+import shamanIcon from 'img/class-icons/shaman.png';
+import warlockIcon from 'img/class-icons/warlock.png';
+import warriorIcon from 'img/class-icons/warrior.png';
+import neutralIcon from 'img/class-icons/neutral.png';
+
 export const classIcons: Record<string, string> = {
-  deathknight: require('img/class-icons/deathknight.png'),
-  demonhunter: require('img/class-icons/demonhunter.png'),
-  druid: require('img/class-icons/druid.png'),
-  hunter: require('img/class-icons/hunter.png'),
-  mage: require('img/class-icons/mage.png'),
-  paladin: require('img/class-icons/paladin.png'),
-  priest: require('img/class-icons/priest.png'),
-  rogue: require('img/class-icons/rogue.png'),
-  shaman: require('img/class-icons/shaman.png'),
-  warlock: require('img/class-icons/warlock.png'),
-  warrior: require('img/class-icons/warrior.png'),
-  neutral: require('img/class-icons/neutral.png')
+  deathknight: deathknightIcon,
+  demonhunter: demonhunterIcon,
+  druid: druidIcon,
+  hunter: hunterIcon,
+  mage: mageIcon,
+  paladin: paladinIcon,
+  priest: priestIcon,
+  rogue: rogueIcon,
+  shaman: shamanIcon,
+  warlock: warlockIcon,
+  warrior: warriorIcon,
+  neutral: neutralIcon,
 }
 
 export const classColors: Record<string, string> = {
