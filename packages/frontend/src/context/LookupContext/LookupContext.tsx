@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import { ReactNode, createContext, useState, useContext, useEffect, useMemo, useCallback } from 'react';
 
-// import { generateTables } from 'functions/dataGeneration';
 import { fetchCardData } from 'functions/fetchCardData';
 import { DEBOUNCE_DELAY } from 'globalConstants';
 import { Metadata } from 'types/metadataTypes';
