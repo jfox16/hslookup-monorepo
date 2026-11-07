@@ -3,7 +3,7 @@ import { DropdownOption } from 'components/Dropdown/Dropdown'
 import packageJson from '../package.json'
 
 export const VERSION_NUMBER = packageJson.version
-export const SERVER_URL = process.env.NODE_ENV === 'production' ? 'https://api.hslookup.net/' : 'http://localhost:5000/';
+export const SERVER_URL = import.meta.env.PROD ? 'https://api.hslookup.net/' : 'http://localhost:5000/';
 export const DEBOUNCE_DELAY = 150;
 
 export const DESKTOP_HEADER_HEIGHT = 60
